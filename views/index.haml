@@ -1,0 +1,23 @@
+%html
+  %head
+    %title Attachments Dashboard
+         
+  %body
+    %p 
+      You have
+      = @files.count
+      attachments.
+
+    - @files.each do |file|
+      %ul
+        %li
+          Filename: 
+          = file["file_name"]
+        %li
+          Size: 
+          = file["size"]
+        %li
+          From:
+          = file["addresses"]["from"]["name"]
+          = "&lt;#{file['addresses']['from']['email']}&gt;"
+
