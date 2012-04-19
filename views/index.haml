@@ -23,4 +23,6 @@
               From:
               = file["addresses"]["from"]["name"]
               = "&lt;#{file['addresses']['from']['email']}&gt;"
+            %li.download
+              %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
         .clear
