@@ -18,6 +18,10 @@ class Context
     @account_id ||= accounts.first["id"]
   end
 
+  NON_JSON = [
+    :get_file_content
+  ]
+
   [
     :list_contacts,
     :get_contact,
@@ -59,7 +63,12 @@ class Context
   ].each do |method|
     send(:define_method, method) do |args|
       args ||= {}
-      handle_response connection.send(method, {:account => account_id}.merge(args))
+      response = connection.send(method, {:account => account_id}.merge(args))
+      if NON_JSON.include?(method) 
+        response.body
+      else
+        handle_response(response)
+      end
     end
   end
 

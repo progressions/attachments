@@ -6,6 +6,6 @@ require 'lib/context'
 get "/" do
   @context ||= Context.new
 
-  @files ||= @context.files
+  @files ||= @context.list_files(:limit => 10000)
   haml :index
 end
