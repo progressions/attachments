@@ -1,6 +1,8 @@
 %html
   %head
     %title Attachments Dashboard
+
+    %link{:rel => "stylesheet", :type => "text/css", :href => "styles.css"}
          
   %body
     %p 
@@ -8,16 +10,17 @@
       = @files.count
       attachments.
 
-    - @files.each do |file|
-      %ul.attachment
-        %li
-          Filename: 
-          = file["file_name"]
-        %li
-          Size: 
-          = file["size"]
-        %li
-          From:
-          = file["addresses"]["from"]["name"]
-          = "&lt;#{file['addresses']['from']['email']}&gt;"
-
+    .attachments
+      - @files.each_slice(2) do |files|
+        - files.each do |file|
+          %ul.attachment
+            %li.filename
+              = file["file_name"]
+            %li.size
+              Size: 
+              = file["size"]
+            %li.from
+              From:
+              = file["addresses"]["from"]["name"]
+              = "&lt;#{file['addresses']['from']['email']}&gt;"
+        .clear

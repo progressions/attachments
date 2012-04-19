@@ -1,0 +1,23 @@
+body, html {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.clear {
+  clear: both;
+}
+
+ul.attachment {
+  list-style-type: none;
+
+  border: 1px solid black;
+  float: left;
+  margin: 1em;
+  padding: 1em;;
+  width: 400px;
+}
+.attachment .filename {
+  font-weight: bold;
+}
+.attachment .size,
+.attachment .from {
+  font-size: 0.75em;
+}
