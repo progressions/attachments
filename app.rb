@@ -5,12 +5,10 @@ require 'lib/context'
 
 
 get "/" do
+  limit = params[:limit] || 10000
   @context = Context.new
-  @messages = @context.list_messages(:include_body => true, :limit => 10000)
+  @messages = @context.list_messages(:include_body => true, :limit => limit)
   @messages_total = @messages.length
-  @messages = @messages.select do |m|
-    m["files"]
-  end
   haml :index
 end
 

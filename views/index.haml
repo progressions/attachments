@@ -15,19 +15,20 @@
     .attachments
       - i = 0
       - @messages.each do |message|
-        - message["files"].each do |file|
-          %ul.attachment
-            %li.subject
-              = message["subject"]
-            %li.from
-              From:
-              = message["addresses"]["from"]["name"]
-              = "&lt;#{message['addresses']['from']['email']}&gt;"
-            %li &nbsp;
-            %li.filename
-              = file["file_name"]
-            %li.size
-              Size: 
-              = file["size"]
-            %li.download
-              %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
+        - if message["files"]
+          - message["files"].each do |file|
+            %ul.attachment
+              %li.subject
+                = message["subject"]
+              %li.from
+                From:
+                = message["addresses"]["from"]["name"]
+                = "&lt;#{message['addresses']['from']['email']}&gt;"
+              %li &nbsp;
+              %li.filename
+                = file["file_name"]
+              %li.size
+                Size: 
+                = file["size"]
+              %li.download
+                %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
