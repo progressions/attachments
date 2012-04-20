@@ -5,11 +5,19 @@ body, html {
   clear: both;
 }
 
+.attachments {
+  width: 940px;
+}
+.row {
+  width: 940px;
+}
+
 ul.attachment {
   list-style-type: none;
 
   border: 1px solid black;
   float: left;
+  height: 7em;
   margin: 1em;
   padding: 1em;;
   width: 400px;
@@ -17,7 +25,9 @@ ul.attachment {
 .attachment .filename {
   font-weight: bold;
 }
+.attachment .subject,
 .attachment .size,
 .attachment .from {
   font-size: 0.75em;
 }
+

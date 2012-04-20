@@ -7,22 +7,27 @@
   %body
     %p 
       You have
-      = @files.count
-      attachments.
+      = @messages.count
+      attachments out of
+      = @messages_total
+      messages.
 
     .attachments
-      - @files.each_slice(2) do |files|
-        - files.each do |file|
+      - i = 0
+      - @messages.each do |message|
+        - message["files"].each do |file|
           %ul.attachment
+            %li.subject
+              = message["subject"]
+            %li.from
+              From:
+              = message["addresses"]["from"]["name"]
+              = "&lt;#{message['addresses']['from']['email']}&gt;"
+            %li &nbsp;
             %li.filename
               = file["file_name"]
             %li.size
               Size: 
               = file["size"]
-            %li.from
-              From:
-              = file["addresses"]["from"]["name"]
-              = "&lt;#{file['addresses']['from']['email']}&gt;"
             %li.download
               %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
-        .clear
