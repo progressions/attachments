@@ -1,5 +1,7 @@
 source :rubygems
  
+gem "activesupport", :require => "active_support"
+
 gem "sinatra"
 gem "haml"
 gem "sass"

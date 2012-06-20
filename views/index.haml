@@ -15,7 +15,6 @@
   %link{:rel => "stylesheet", :type => "text/css", :href => "/assets/application.css"}
 
   %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", :type => "text/javascript"}
-  %script{:src => "/assets/application.js", :type => "text/javascript"}
   %script{:src => "/assets/oibootstrap/modernizr-2.5.3.min.js", :type => "text/javascripts"}
        
 %body
@@ -32,23 +31,28 @@
       = @messages.length
       messages.
 
+    %p
+      File names:
+      = @attachment_names.join(", ")
+
     .attachments
       - i = 0
       - @messages.each do |message|
         - if message["files"]
           - message["files"].each do |file|
-            %ul.attachment
-              %li.subject
+            .attachment.well.span4
+              %h3.subject
                 = message["subject"]
-              %li.from
+              %p.from
                 From:
                 = message["addresses"]["from"]["name"]
                 = "&lt;#{message['addresses']['from']['email']}&gt;"
-              %li &nbsp;
-              %li.filename
+              %p.filename
                 = file["file_name"]
-              %li.size
+              %p.size
                 Size: 
                 = file["size"]
-              %li.download
+              %p.download
                 %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
+
+  %script{:src => "/assets/application.js", :type => "text/javascript"}

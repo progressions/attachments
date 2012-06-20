@@ -1,1 +1,12 @@
-@import "oibootstrap"
+@import "oibootstrap";
+
+.attachments {
+  .attachment {
+    float: left;
+
+    .subject {
+      height: $baseLineHeight * 3;
+      overflow: hidden;
+    }
+  }
+}
