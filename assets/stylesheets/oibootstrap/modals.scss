@@ -1,0 +1,97 @@
+
+/* ==============================================================================
+   Modals
+   =========================================================================== */
+
+// Recalculate z-index where appropriate
+.modal-open {
+  .dropdown-menu {  z-index: $zindexDropdown + $zindexModal; }
+  .dropdown.open { *z-index: $zindexDropdown + $zindexModal; }
+  .popover       {  z-index: $zindexPopover  + $zindexModal; }
+  .tooltip       {  z-index: $zindexTooltip  + $zindexModal; }
+}
+
+// Background
+.modal-backdrop {
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $zindexModalBackdrop;
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+}
+
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  @include opacity(80);
+}
+
+// Base modal
+.modal {
+  background-color: $white;
+  left: 50%;
+  margin: -250px 0 0 -280px;
+  max-height: 500px;
+  overflow: auto;
+  position: fixed;
+  top: 50%;
+  width: 560px;
+  z-index: $zindexModal;
+  @include border-radius(3px);
+  @include box-shadow(0 3px 7px rgba(0,0,0,0.3));
+  @include background-clip(padding-box);
+
+  &.fade {
+    @include transition(opacity .1s linear);
+  }
+}
+
+.modal-header {
+  background-color: lighten($creamLight, 1%);
+  border-bottom: 2px solid $grayLightest;
+  padding: 15px 20px 11px;
+  @include border-radius(3px 3px 0 0);
+
+  .close { margin-top: 4px; }
+
+  h1, h2, h3, h4, h5, h6 { margin-bottom: 0; }
+}
+
+// Body (where all modal content resises)
+.modal-body {
+  padding: 20px;
+
+  // Remove bottom margin if need be
+  .modal-form { margin-bottom: 0; }
+
+  h4, h5 {
+    color: $grayDark;
+    font-size: 18px;
+    line-height: $baseLineHeight * 1.5;
+    margin-bottom: $baseLineHeight / 4;
+  }
+
+  h4 {
+    font-weight: $semibold;
+  }
+}
+
+
+// Footer (for actions)
+.modal-footer {
+  background: $blueLightest url('/images/oibootstrap/shadow.png') repeat-x top;
+  margin-bottom: 0;
+  padding: 19px 20px 20px;
+  @include border-radius(0 0 3px 3px);
+  @include clearfix();
+
+  .btn {
+    float: right;
+    margin-left: 5px;
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+  }
+}

@@ -1,0 +1,29 @@
+
+/* ==============================================================================
+   Accordion
+   =========================================================================== */
+
+// Parent container
+.accordion { margin-bottom: $baseLineHeight; }
+
+// Group == heading + body
+.accordion-group {
+  border: 1px solid #e5e5e5;
+  margin-bottom: 2px;
+  @include border-radius();
+}
+
+.accordion-heading {
+  border-bottom: 0;
+}
+
+.accordion-heading .accordion-toggle {
+  display: block;
+  padding: 8px 15px;
+}
+
+// Inner needs the styles because you can't animate properly with any styles on the element
+.accordion-inner {
+  border-top: 1px solid #e5e5e5;
+  padding: 9px 15px;
+}

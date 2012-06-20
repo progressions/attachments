@@ -1,0 +1,20 @@
+
+/* ==============================================================================
+   Portrait Tablet → Default Desktop
+   768px → 979px
+   =========================================================================== */
+
+@media (min-width: 768px) and (max-width: 979px) {
+
+  // Fixed grid
+  @include gridSystem-generate(12, 42px, 20px);
+
+  // Fluid grid
+  @include fluidGridSystem-generate(12, 5.801104972%, 2.762430939%);
+
+  // Input grid
+  @include inputGridSystem-generate(12, 42px, 20px);
+
+  // No need to reset .thumbnails here since it's the same $gridGutterWidth
+
+}

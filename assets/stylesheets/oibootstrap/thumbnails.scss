@@ -1,0 +1,55 @@
+
+/* ==============================================================================
+   Thumbnails
+   =========================================================================== */
+
+.thumbnails {
+  list-style: none;
+  margin-left: -$gridGutterWidth;
+  @include clearfix();
+
+  > li {
+    float: left;
+    margin: 0 0 $baseLineHeight $gridGutterWidth;
+  }
+
+  .caption {
+    padding: ($baseLineHeight / 2) 3px 5px;
+
+    p {
+      color: $gray;
+      font-size: $baseFontSize;
+      margin-bottom: 0;
+    }
+
+    h5 {
+      color: $black;
+      font-size: $baseFontSize;
+      font-weight: $semibold;
+      margin-bottom: $baseLineHeight / 4;
+    }
+  }
+}
+
+.thumbnail {
+  border: 1px solid $grayLighter;
+  display: inline-block;
+  line-height: 1;
+  padding: 3px;
+  @include border-radius();
+  @include box-shadow(0 1px 1px rgba(0,0,0,.075));
+
+  // Images and captions
+  > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+  }
+
+}
+
+// Add a hover state for linked versions only
+a.thumbnail:hover {
+  border-color: $gold;
+}

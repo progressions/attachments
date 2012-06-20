@@ -1,0 +1,78 @@
+
+/* ==============================================================================
+   Code
+   Code typography styles for the <code> and <pre> elements
+   =========================================================================== */
+
+// Inline and block code styles
+code,
+pre {
+  color: $blueMuted;
+  font-family: $monoFontFamily;
+  font-size: $baseFontSize - 1;
+  padding: 0 3px 2px;
+  @include border-radius(3px);
+}
+
+// Inline code
+code {
+  background-color: $wellBackgroundColor;
+  color: $blueMuted;
+  padding: 3px 4px;
+  @include box-shadow(inset 0 1px 2px rgba(0,0,0,.05));
+}
+
+// Blocks of code
+pre {
+  background-color: $wellBackgroundColor;
+  display: block;
+  font-size: $baseFontSize - 1;
+  line-height: $baseLineHeight;
+  margin: 0 0 $baseLineHeight / 2;
+  padding: ($baseLineHeight - 1) / 2;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  @include border-radius();
+  @include box-shadow(inset 0 1px 2px rgba(0,0,0,.2));
+
+  // Make prettyprint styles more spaced out for readability
+  &.prettyprint { margin-bottom: $baseLineHeight; }
+
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    padding: 0;
+  }
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+// Code Prettify (http://code.google.com/p/google-code-prettify/)
+// Colors changed to reflect Solarized (http://ethanschoonover.com/solarized)
+.com                    { color: #839496; } // Solarized Base0
+.lit                    { color: #6C71C4; } // Solarized Purple
+.pun, .opn, .clo        { color: #586E75; } // Solarized Base01
+.fun                    { color: #D30102; } // Solarized Red
+.str, .atv              { color: #2AA198; } // Solarized Cyan
+.kwd, .linenums .tag    { color: #268BD2; } // Solarized Blue
+.typ, .atn, .dec, .var  { color: #586E75; } // Solarized Base01
+.pln                    { color: #002B36; } // Solarized Base03
+
+ol.linenums {
+  margin: 0 0 0 33px; // IE indents via margin-left
+
+  li {
+    color: $grayLight;
+    font-size: $baseFontSize - 1;
+    padding-left: 12px;
+    text-shadow: 0 1px 0 #fff;
+  }
+}
