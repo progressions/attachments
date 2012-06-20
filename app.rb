@@ -28,7 +28,3 @@ get "/download" do
   attachment file["file_name"]
   file_content
 end
-
-get "/test" do
-  haml :test
-end
