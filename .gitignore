@@ -1,2 +1,3 @@
 config/contextio.yml
 *.swp
+.sass-cache
