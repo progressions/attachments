@@ -27,27 +27,29 @@
         = @messages.length
         messages.
 
+      %p
+        File names:
+        = @attachment_names.join(", ")
+
       %table.table.attachments
         %thead
           %tr
-            %th Filename
             %th Subject
+            %th Filename
             %th Size
-            %th Date
             %th 
         - @messages.each do |message|
           - if message["files"]
             - message["files"].each do |file|
               %tr
-                %td.filename
-                  = file["file_name"]
                 %td.subject
                   = message["subject"]
+                %td.filename
+                  = file["file_name"]
                 %td.size
-                  = file["size"].to_i / 1000
-                  KB
-                %td.date
-                  = message["date"]
+                  Size: 
+                  = file["size"].to_i / 10.0
+                  kb
                 %td.download
                   %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
 
