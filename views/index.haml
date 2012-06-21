@@ -41,14 +41,15 @@
               %tr
                 %td.filename
                   = file["file_name"]
-                %td.subject
+                %td.subject.truncate
                   = message["subject"]
                 %td.size
                   = file["size"].to_i / 1000
                   KB
                 %td.date
-                  = message["date"]
+                  = Time.at(message["date"].to_i).strftime("%m/%d/%Y")
                 %td.download
+                  %i.icon-download
                   %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
 
     %script{:src => "/assets/application.js", :type => "text/javascript"}
