@@ -8,6 +8,12 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    coffee-script (2.2.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.4.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
     haml (3.1.6)
     hike (1.2.1)
     json (1.7.3)
@@ -39,6 +45,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  coffee-script (~> 2.2.0)
   contextio!
   haml
   json

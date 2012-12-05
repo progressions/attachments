@@ -3,6 +3,7 @@ source :rubygems
 gem "sinatra"
 gem "haml"
 gem "sass"
+gem 'coffee-script', '~>2.2.0'
 gem "json"
 
 gem "sinatra"

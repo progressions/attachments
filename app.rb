@@ -1,5 +1,3 @@
-set :haml, :format => :html5
-
 Bundler.require
 require 'lib/context'
 
