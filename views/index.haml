@@ -32,7 +32,7 @@
         You have 
         %span.files_count 10
         files in 
-        = @messages.length
+        %span.messages_count 10
         messages.
 
       %table.table.attachments
@@ -43,6 +43,10 @@
             %th Size
             %th Date
             %th 
+          %tr.loading
+            %td{:colspan => 5}
+              .spinner.spinner-small
+              Loading ...
         - @messages.each do |message|
           - if message["files"]
             - message["files"].each do |file|
@@ -61,3 +65,8 @@
                   %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
 
     %script{:src => "/assets/application.js", :type => "text/javascript"}
+
+    :javascript
+      $(document).ready(function() {
+        messages = new Messages(".attachments");
+      });

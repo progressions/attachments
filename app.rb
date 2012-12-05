@@ -2,6 +2,12 @@ Bundler.require
 require 'lib/context'
 
 get "/" do
+  @attachments = []
+  @messages = []
+  haml :index
+end
+
+get "/attachments" do
   limit = params[:limit] || 10000
   @context = Context.new
   @messages = @context.list_messages(:include_body => true, :limit => limit)
@@ -15,7 +21,10 @@ get "/" do
     end
   end.flatten.compact
 
-  haml :index
+  {
+    :attachments => @attachments,
+    :messages => @messages
+  }.to_json
 end
 
 get "/files" do
