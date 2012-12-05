@@ -1,0 +1,149 @@
+
+/* ==============================================================================
+   Variables
+   Used to customize the look and feel of Bootstrap
+   =========================================================================== */
+
+/* Colors
+================================================== */
+
+$black:                 #2B2B2B;
+$grayDark:              #4C4C4C;
+$gray:                  #6F6F6F;
+$grayLight:             #B2B2B2;
+$grayLighter:           #E0E0E0;
+$grayLightest:          #F4F4F4;
+$white:                 #FFFFFF;
+$cream:                 #F2F0EB;
+$creamLight:            #FAF9F7;
+
+$blue:                  #0886D0;
+$blueDark:              #0F659F;
+$blueLight:             #B0C8D7;
+$blueLighter:           #E6F0F7;
+$blueLightest:          #F5FAFB;
+$blueMuted:             #59737E;
+$green:                 #06B774;
+$red:                   #E65138;
+$gold:                  #FAB75D;
+$orange:                #F07E43;
+$violet:                #A843AC;
+
+/* Type
+================================================== */
+
+// Base
+$baseFontSize:          13px;
+$baseLineHeight:        21px;
+$textColor:             $grayDark;
+
+// Fonts
+$baseFontFamily:        'myriad-pro', "Myriad Pro", Myriad, "Helvetica Neue", Helvetica, Arial, Tahoma, Geneva, sans-serif;
+$monoFontFamily:        Menlo, Monaco, "Courier New", monospace;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+
+// Weights
+$light:                 300;
+$normal:                400;
+$semibold:              600;
+$bold:                  700;
+
+// Links
+$linkColor:             $blue;
+
+/* Buttons
+================================================== */
+
+$btnBackground:                     darken($grayLightest, 1%);
+$btnBackgroundHighlight:            darken($grayLightest, 12%);
+$btnBorder:                         darken($grayLightest, 20%);
+
+$btnPrimaryBackground:              $blue;
+$btnPrimaryBackgroundHighlight:     darken($blue, 10%);
+
+$btnInfoBackground:                 $grayLight;
+$btnInfoBackgroundHighlight:        darken($grayLight, 15%);
+
+$btnSuccessBackground:              $green;
+$btnSuccessBackgroundHighlight:     darken($green, 8%);
+
+$btnWarningBackground:              $gold;
+$btnWarningBackgroundHighlight:     darken($gold, 15%);
+
+$btnDangerBackground:               $red;
+$btnDangerBackgroundHighlight:      darken($red, 15%);
+
+$btnInverseBackground:              $gray;
+$btnInverseBackgroundHighlight:     $black;
+
+/* Tables
+================================================== */
+
+$tableBackground:                   transparent; // overall background-color
+$tableBackgroundAccent:             darken($grayLightest, 2%); // for striping
+$tableBackgroundHover:              darken($blueLightest, 2%); // for hover
+$tableBorder:                       $grayLighter; // table and cell border
+
+/* Form states and alerts
+================================================== */
+
+$warningText:           darken($gold, 25%);
+$warningBackground:     #fcf8e3;
+$warningBorder:         darken(adjust-hue($warningBackground, -10), 3%);
+
+$errorText:             darken($red, 10%);
+$errorBackground:       #f2dede;
+$errorBorder:           darken(adjust-hue($errorBackground, -10), 3%);
+
+$successText:           darken($green, 10%);
+$successBackground:     #dff0d8;
+$successBorder:         darken(adjust-hue($successBackground, -10), 5%);
+
+$infoText:              #3a87ad;
+$infoBackground:        #d9edf7;
+$infoBorder:            darken(adjust-hue($infoBackground, -10), 7%);
+
+$inverseText:           $grayLighter;
+$inverseBackground:     $black;
+$inverseBorder:         darken(adjust-hue($inverseBackground, -10), 7%);;
+
+/* Component Variables
+================================================== */
+
+// Z-index master list
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+$zindexDropdown:        1000;
+$zindexPopover:         1010;
+$zindexTooltip:         1020;
+$zindexFixedNavbar:     1030;
+$zindexModalBackdrop:   1040;
+$zindexModal:           1050;
+
+// Navbar
+$navbarHeight:                    $baseLineHeight * 2;
+$navbarBackground:                $black;
+$navbarBackgroundHighlight:       $grayDark;
+$navbarLinkBackgroundHover:       transparent;
+$navbarText:                      $grayLight;
+$navbarLinkColor:                 $grayLight;
+$navbarLinkColorHover:            $white;
+
+// Well background
+$wellBackgroundColor:             darken($grayLightest, 2%);
+
+// Popover color
+$popover-background: $grayDark;
+
+/* Grid
+================================================== */
+
+// Default 940px grid
+$gridColumns:             12;
+$gridColumnWidth:         60px;
+$gridGutterWidth:         20px;
+$gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
+
+// Fluid grid
+$fluidGridColumnWidth:    6.382978723%;
+$fluidGridGutterWidth:    2.127659574%;

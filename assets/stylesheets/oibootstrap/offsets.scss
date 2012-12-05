@@ -1,0 +1,35 @@
+
+/* ==============================================================================
+   Offsets
+   Offset content for emphasis and good looks
+   =========================================================================== */
+
+.well {
+  background-color: $wellBackgroundColor;
+  border: 1px solid #eee;
+  border: 1px solid rgba(0,0,0,.05);
+  margin-bottom: 20px;
+  min-height: 20px;
+  padding: 20px;
+  @include border-radius();
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.2));
+
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}
+
+.folio {
+  background-color: $white;
+  margin-bottom: 20px;
+  min-height: 20px;
+  padding: 20px;
+  @include border-radius();
+  @include box-shadow();
+
+  blockquote {
+    border-color: #ddd;
+    border-color: rgba(0,0,0,.15);
+  }
+}

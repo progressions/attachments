@@ -1,0 +1,26 @@
+
+/* ==============================================================================
+   Badges
+   =========================================================================== */
+
+.badge {
+  background-color: $grayLight;
+  color: $white;
+  font-size: $baseFontSize * .925;
+  font-weight: $semibold;
+  padding: 3px 9px 1px;
+  white-space: nowrap;
+  @include border-radius(9px);
+
+  &:hover {
+    color: $white;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+.badge-important        { background-color: $errorText; }
+.badge-warning          { background-color: $orange; }
+.badge-success          { background-color: $successText; }
+.badge-info             { background-color: $infoText; }
+.badge-inverse          { background-color: $grayDark; }

@@ -1,0 +1,323 @@
+
+/* ==============================================================================
+   Type
+   Headings, body text, lists, code, and more for a versatile and durable typography system
+   =========================================================================== */
+
+/* Body Text
+================================================== */
+
+p {
+  color: $grayDark;
+  font-family: $baseFontFamily;
+  font-size: $baseFontSize + 2;
+  line-height: $baseLineHeight;
+  margin: 0 0 $baseLineHeight;
+
+  small {
+    color: $gray;
+    font-size: $baseFontSize;
+  }
+}
+
+.lead {
+  color: $black;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: $baseLineHeight * 1.5;
+  margin-bottom: $baseLineHeight;
+
+  code { font-size: 16px; }
+}
+
+/* Links
+================================================== */
+
+a {
+  color: $linkColor;
+  cursor: pointer;
+  line-height: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+
+  &:hover { color: darken($linkColor, 15); }
+}
+
+/* Headings
+================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  color: $black;
+  font-weight: $semibold;
+  margin: 0 0 ($baseLineHeight / 2) 0;
+  text-rendering: optimizelegibility; // Fix the character spacing for headings
+  text-shadow: 0 1px 0 $white;
+
+  small {
+    color: lighten($gray, 10%);
+    font-weight: $normal;
+  }
+
+  // Icons
+  [class^="icon-"],
+  [class*=" icon-"] {
+    font-weight: normal;
+    vertical-align: none;
+  }
+}
+
+h1 {
+  font-size: 42px;
+  line-height: $baseLineHeight * 2;
+
+  small { font-size: 21px; }
+
+  // Size Icons
+  [class^="icon-"],
+  [class*=" icon-"] {
+    @include icon-size(36px);
+    @include opacity(50);
+  }
+}
+
+h2 {
+  font-size: 32px;
+  line-height: $baseLineHeight * 2;
+
+  small { font-size: 18px; }
+}
+
+h3 {
+  font-size: 24px;
+  line-height: $baseLineHeight * 1.5;
+
+  small { font-size: 16px; }
+}
+
+h4 {
+  color: $grayDark;
+  font-size: 18px;
+  line-height: $baseLineHeight * 1.5;
+  margin-bottom: 0;
+
+  small { font-size: 14px; }
+}
+
+h5, h6 {
+  color: $gray;
+  font-weight: $normal;
+  line-height: $baseLineHeight;
+}
+
+h5 { font-size: 18px; }
+
+h6 {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Section Dividers
+================================================== */
+
+.page-header {
+  margin: 0 0 ($baseLineHeight * 1.5) 0;
+  padding-bottom: 0;
+
+  &:after {
+    background: $grayLightest;
+    border-bottom: 1px solid $white;
+    border-top: 1px solid darken($grayLightest, 5%);
+    content: "";
+    display: block;
+    height: 2px;
+  }
+
+  h1 {
+    line-height: 1;
+    margin-bottom: $baseLineHeight / 2;
+  }
+}
+
+.chapter:after {
+  background-color: $cream;
+  content: "";
+  display: block;
+  border-bottom: 1px solid $white;
+  margin-bottom: $baseLineHeight;
+  width: 100%;
+  height: 2px;
+}
+
+/* Lists
+================================================== */
+
+// Unordered and Ordered lists
+ul, ol {
+  color: $grayDark;
+  margin: 0 0 $baseLineHeight / 2 25px;
+  padding: 0;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+ul { list-style: disc; }
+
+ol { list-style: bullet; }
+
+li {
+  color: $gray;
+  font-size: $baseFontSize + 1;
+  line-height: $baseLineHeight;
+}
+
+ul.unstyled,
+ol.unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+
+.ul-horizontal {
+  margin-left: 0;
+
+  li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// Definition Lists
+dl { margin-bottom: $baseLineHeight; }
+
+dt,
+dd {
+  line-height: $baseLineHeight;
+}
+
+dt { font-weight: $semibold; }
+
+dd {
+  color: $gray;
+  margin-left: $baseLineHeight / 2;
+}
+
+// Horizontal layout (like forms)
+.dl-horizontal {
+  dt {
+    float: left;
+    clear: left;
+    width: 120px;
+    text-align: right;
+  }
+
+  dd { margin-left: 130px; }
+}
+
+/* Misc
+================================================== */
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate
+ */
+
+::-moz-selection {
+  background: #F6E96E;
+  color: $white;
+  text-shadow: none;
+}
+
+::selection {
+  background: #F6E96E;
+  color: $black;
+  text-shadow: none;
+}
+
+
+// Horizontal rules
+hr {
+  border-left: 0;
+  border-bottom: 1px solid $white;
+  border-top: 2px solid $cream;
+  margin: $baseLineHeight 0;
+}
+
+// Emphasis
+strong {
+  color: $black;
+  font-weight: $semibold;
+}
+
+em { font-style: italic; }
+
+.muted { color: $grayLight; }
+
+// Abbreviations and acronyms
+abbr {
+  border-bottom: 1px dotted $grayLighter;
+  cursor: help;
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+// Blockquotes
+blockquote {
+  border-left: 5px solid $grayLighter;
+  margin: 0 0 $baseLineHeight;
+  padding: 0 0 0 15px;
+
+  p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: $baseLineHeight * 1.25;
+    margin-bottom: 0;
+  }
+
+  small {
+    color: $gray;
+    display: block;
+    line-height: $baseLineHeight;
+
+    &:before { content: '\2014 \00A0'; }
+  }
+
+  // Float right with text-align: right
+  &.pull-right {
+    border-left: 0;
+    border-right: 5px solid $grayLighter;
+    float: right;
+    padding-left: 0;
+    padding-right: 15px;
+
+    p,
+    small {
+      text-align: right;
+    }
+  }
+}
+
+// Quotes
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+  content: "";
+}
+
+// Addresses
+address {
+  display: block;
+  font-style: normal;
+  line-height: $baseLineHeight;
+  margin-bottom: $baseLineHeight;
+}
+
+// Misc
+small { font-size: 100%; }
+
+cite { font-style: normal; }

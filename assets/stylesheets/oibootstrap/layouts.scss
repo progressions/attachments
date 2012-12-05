@@ -1,0 +1,70 @@
+
+/* ==============================================================================
+   Layouts
+   Styles for global elements in the OIB Framework
+   =========================================================================== */
+
+/* Global sections
+================================================== */
+
+body {
+  background-color: $creamLight;
+  color: $textColor;
+  font-family: $baseFontFamily;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  margin: 0;
+}
+
+#content {
+  margin-top: $baseLineHeight * 4;
+}
+
+/* Footer
+================================================== */
+
+#footer {
+  border-top: 2px solid $grayLightest;
+  margin-top: $baseLineHeight;
+  padding: $baseLineHeight 0;
+  text-align: center;
+  @include clearfix();
+
+  .footer-links ul {
+    display: inline-block;
+    @include clearfix();
+
+    li {
+      padding: 0;
+      text-align: center;
+    }
+
+    a {
+      border-right: 2px solid $blueLighter;
+      display: inline-block;
+      padding: 0 10px;
+    }
+
+    // Remove the divider on the last list item
+    li:last-child a { border: none; };
+  }
+
+  .copyright {
+    color: $grayLight;
+    font-size: $baseFontSize;
+    margin-bottom: $baseLineHeight / 2;
+  }
+
+  .brand {
+    display: inline-block;
+    @include clearfix();
+    @include opacity(65);
+
+    &:hover { @include opacity(100); }
+  }
+}
+
+.content-splash {
+  //max-width: 640px;
+  //margin: 0 auto;
+}

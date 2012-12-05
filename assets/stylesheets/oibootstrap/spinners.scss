@@ -1,0 +1,34 @@
+
+/* ==============================================================================
+   Spinners
+   =========================================================================== */
+
+/* Base Spinner Styles
+================================================== */
+.spinner {
+  display: inline-block;
+}
+
+.spinner-container {
+  display: block;
+  margin: $baseLineHeight 0;
+  text-align: center;
+
+  p {
+    color: $blueDark;
+    margin-top: $baseLineHeight / 2;
+  }
+}
+
+/* Spinner Sizes
+================================================== */
+
+.spinner-tiny  { @include square(15px); }
+.spinner-small { @include square(24px); }
+.spinner-large { @include square(42px); }
+.spinner-giant { @include square(100px); }
+
+/* Spinner Styles
+================================================== */
+
+.spinner-cog { background: url('/images/oibootstrap/spinner-cog.png') center; }

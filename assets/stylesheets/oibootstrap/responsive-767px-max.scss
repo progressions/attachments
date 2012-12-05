@@ -1,0 +1,196 @@
+
+/* ==============================================================================
+   Landscape Phone ↓
+   0px → 480px
+   =========================================================================== */
+
+@media (max-width: 480px) {
+
+  body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  // Smooth out the collapsing/expanding nav
+  .nav-collapse {
+    -webkit-transform: translate3d(0, 0, 0); // activate the GPU
+  }
+
+  // Block level the page header small tag for readability
+  .page-header h1 small {
+    display: block;
+    line-height: $baseLineHeight;
+  }
+
+  /* Forms
+  -------------------------------------------------- */
+  // Update checkboxes for iOS
+  input[type="checkbox"],
+  input[type="radio"] {
+    border: 1px solid #ccc;
+  }
+
+  // Remove the horizontal form styles
+  .form-horizontal .control-group > label {
+    float: none;
+    padding-top: 0;
+    text-align: left;
+    width: auto;
+  }
+
+  // Move over all input controls and content
+  .form-horizontal .controls {
+    margin-left: 0;
+  }
+
+  // Move the options list down to align with labels
+  .form-horizontal .control-list {
+    padding-top: 0; // has to be padding because margin collaspes
+  }
+
+  // Move over buttons in .form-actions to align with .controls
+  .form-horizontal .form-actions {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .form.form-horizontal {
+    .control-group { padding: 0 10px; }
+  }
+
+  // Masthead
+  .masthead {
+    padding: 30px;
+
+    h1 { font-size: 32px; }
+
+    p.lead {
+      font-size: 16px;
+      line-height: $baseLineHeight;
+    }
+  }
+
+  // Modals
+  .modal {
+    left:  10px;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top:   10px;
+    width: auto;
+    &.fade.in { top: auto; }
+  }
+
+  .modal-header .close {
+    padding: 10px;
+    margin: -10px;
+  }
+
+  // Carousel
+  .carousel-caption { position: static; }
+
+}
+
+/* ==============================================================================
+   Only 480 → 767
+   =========================================================================== */
+
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ==============================================================================
+   Landscape Phone → Small Desktop / Tablet Portrait
+   0 → 767
+   =========================================================================== */
+
+@media (max-width: 767px) {
+
+  // Padding to set content in a bit
+  .SSbody {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  // Remove padding on container given explicit padding set on body
+  .container-fluid { padding: 0; }
+
+  // Fix navbar width
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom  .container {
+    width: auto;
+
+    .brand { margin-left: 0; }
+  }
+
+  /* Type
+  ================================================== */
+
+  // Reset horizontal dl
+  .dl-horizontal {
+    dt {
+      clear: none;
+      float: none;
+      text-align: left;
+      width: auto;
+    }
+
+    dd { margin-left: 0; }
+  }
+
+  /* Grid & Containers
+  ================================================== */
+
+  // Remove width from containers
+  .container { width: auto; }
+
+  // Fluid rows
+  .row-fluid { width: 100%; }
+
+  // Undo negative margin on rows and thumbnails
+  .row,
+  .thumbnails {
+    margin-left: 0;
+  }
+
+  // Make all grid-sized elements block level again
+  [class*="span"],
+  .row-fluid [class*="span"] {
+    display: block;
+    float: none;
+    margin-left: 0;
+    width: auto;
+  }
+
+  /* Form Fields
+  ================================================== */
+
+  // Make span* classes full width
+  .input-large,
+  .input-xlarge,
+  .input-xxlarge,
+  input[class*="span"],
+  select[class*="span"],
+  textarea[class*="span"],
+  .uneditable-input {
+    @include input-block-level();
+  }
+
+  // But don't let it screw up prepend/append inputs
+  .input-prepend input,
+  .input-append input,
+  .input-prepend input[class*="span"],
+  .input-append input[class*="span"] {
+    display: inline-block; // redeclare so they don't wrap to new lines
+    width: auto;
+  }
+
+  /* Thumbnails
+  ================================================== */
+
+  .thumbnails > li { margin-left: 0; }
+
+}

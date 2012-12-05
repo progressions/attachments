@@ -1,0 +1,98 @@
+
+/* ==============================================================================
+   Pagination
+   =========================================================================== */
+
+.pagination {
+  height: $baseLineHeight * 2;
+  margin: $baseLineHeight 0;
+
+  ul {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 0;
+    @include border-radius();
+    @include box-shadow(0 1px 2px rgba(0,0,0,.05));
+    @include ie7-inline-block();
+  }
+
+  li { display: inline; }
+
+  a {
+    border: 1px solid #ddd;
+    border-left-width: 0;
+    float: left;
+    padding: 6px 14px 4px;
+    text-decoration: none;
+    @include gradient-vertical(#ffffff, #f5f5f5);
+
+    &:hover {
+      @include gradient-vertical(lighten($blueLighter, 2%), darken($blueLighter, 2%));
+    }
+  }
+
+  .active a {
+    color: $gray;
+    cursor: default;
+    @include box-shadow(inset 1px 1px 1px rgba(0,0,0,.1));
+    @include gradient-vertical($grayLighter, lighten($grayLighter, 4%));
+  }
+
+  .disabled span,
+  .disabled a,
+  .disabled a:hover {
+    background-color: transparent;
+    color: $grayLight;
+    cursor: default;
+  }
+
+  li:first-child a {
+    border-left-width: 1px;
+    @include border-radius(3px 0 0 3px);
+  }
+
+  li:last-child a {
+    @include border-radius(0 3px 3px 0);
+  }
+}
+
+// Centered
+.pagination-centered {
+  text-align: center;
+}
+.pagination-right {
+  text-align: right;
+}
+
+
+/* ==============================================================================
+   Pager
+   =========================================================================== */
+
+.pager {
+  list-style: none;
+  margin-bottom: $baseLineHeight;
+  margin-left: 0;
+  text-align: center;
+  @include clearfix();
+
+  li { display: inline; }
+
+  a {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: inline-block;
+    padding: 5px 14px;
+    @include border-radius();
+    @include gradient-vertical(#ffffff, #f5f5f5);
+
+    &:hover {
+      text-decoration: none;
+      background-color: $blueLighter;
+      @include gradient-vertical(lighten($blueLighter, 2%), darken($blueLighter, 2%));
+    }
+  }
+
+  .next a { float: right; }
+  .previous a { float: left; }
+}

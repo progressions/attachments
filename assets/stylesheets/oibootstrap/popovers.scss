@@ -1,0 +1,59 @@
+
+/* ==============================================================================
+   Popovers
+   =========================================================================== */
+
+.popover {
+  display: none;
+  left: 0;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  z-index: $zindexPopover;
+
+  &.top    { margin-top:  -5px; }
+  &.right  { margin-left:  5px; }
+  &.bottom { margin-top:   5px; }
+  &.left   { margin-left: -5px; }
+  &.top .arrow    { @include popoverArrow-top(); }
+  &.right .arrow  { @include popoverArrow-right(); }
+  &.bottom .arrow { @include popoverArrow-bottom(); }
+  &.left .arrow   { @include popoverArrow-left();  }
+
+  .arrow {
+    height: 0;
+    position: absolute;
+    width: 0;
+  }
+}
+
+.popover-inner {
+  background: $black; // has to be full background declaration for IE fallback
+  background: $black;
+  overflow: hidden;
+  padding: 3px;
+  width: 280px;
+  @include border-radius(6px);
+  @include box-shadow(0 3px 7px rgba(0,0,0,0.3));
+}
+
+.popover-title {
+  background-color: $grayLightest;
+  border-bottom:1px solid #eee;
+  font-size: $baseFontSize * 1.5;
+  line-height: 1;
+  margin-bottom: 0;
+  padding: 9px 15px;
+  @include border-radius(3px 3px 0 0);
+}
+
+.popover-content {
+  background-color: $white;
+  padding: 14px;
+  @include border-radius(0 0 3px 3px);
+  @include background-clip(padding-box);
+
+  p, ul, ol {
+    margin-bottom: 0;
+  }
+}

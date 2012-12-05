@@ -28,36 +28,29 @@
 
 
     #content.container
-      %p
-        You have 
-        %span.files_count 10
-        files in 
-        = @messages.length
-        messages.
+      - @filenames.each do |file|
+        .folio
+          %p= file
 
-      %table.table.attachments
-        %thead
-          %tr
-            %th Filename
-            %th Subject
-            %th Size
-            %th Date
-            %th 
-        - @messages.each do |message|
-          - if message["files"]
-            - message["files"].each do |file|
+          %table.table.table-bordered.attachments
+            %thead
               %tr
-                %td.filename
-                  = file["file_name"]
-                %td.subject.truncate
-                  = message["subject"]
+                %th Subject
+                %th Size
+                %th Date
+                %th 
+
+            - @grouped_files[file].each do |version|
+              %tr
+                %td.subject
+                  = version["subject"]
                 %td.size
-                  = file["size"].to_i / 1000
+                  = version["size"].to_i / 1000
                   KB
                 %td.date
-                  = Time.at(message["date"].to_i).strftime("%m/%d/%Y")
+                  = Time.at(version["date"].to_i).strftime("%m/%d/%Y")
                 %td.download
                   %i.icon-download
-                  %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
+                  %a{:href => "/download?file_id=#{version['file_id']}&content_type=#{version['type']}"} Download
 
     %script{:src => "/assets/application.js", :type => "text/javascript"}

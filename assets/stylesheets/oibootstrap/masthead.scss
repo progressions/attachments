@@ -1,0 +1,41 @@
+
+/* ==============================================================================
+   Masthead
+   =========================================================================== */
+
+.masthead {
+  background-color: $white;
+  margin: auto auto $baseLineHeight;
+  max-width: 840px;
+  padding: 60px;
+  @include border-radius();
+  @include box-shadow();
+
+  // Size Icons
+  h1 [class^="icon-"],
+  h1 [class*=" icon-"] {
+    @include icon-size(36px);
+    @include opacity(50);
+  }
+
+  // Remove margin from the last element
+  *:last-child { margin-bottom: 0; }
+
+  p { color: $grayDark; }
+
+  .masthead-footer {
+    border-top: 2px solid $cream;
+    margin-bottom: -35px;
+    margin-top: $baseLineHeight * 2;
+    padding-top: $baseLineHeight;
+    text-align: center;
+
+    p {
+      color: $gray;
+      font-size: $baseFontSize;
+    }
+
+    p:last-child { margin-bottom: 0; }
+  }
+}
+

@@ -1,0 +1,192 @@
+
+/* ==============================================================================
+   Landscape Phone ↓
+   0px → 480px
+   =========================================================================== */
+
+@media (max-width: 480px) {
+
+  /* Unfix the Navbar
+  ================================================== */
+
+  // Remove any padding from the body
+  body { padding-top: 0; }
+
+  // Unfix the navbar
+  .navbar-fixed-top {
+    margin-bottom: $baseLineHeight;
+    position: static;
+
+    .navbar-inner { padding: 0 5px; }
+  }
+
+  .navbar {
+    .container {
+      padding: 0;
+      width: auto;
+    }
+
+    // Account for brand name
+    .brand {
+      margin: 0;
+      padding-left: 0;
+      padding-right: 10px;
+    }
+  }
+
+  /* Collapsible Navbar
+  ================================================== */
+
+  .nav-collapse {
+    background-color: darken($navbarBackground, 5%);
+    clear: both;
+    margin: 0 -10px;
+
+    // Block-level the nav
+    .nav {
+      border-top: 2px solid darken($navbarBackground, 6%);
+      float: none;
+      margin: 0 0 ($baseLineHeight / 2);
+      padding-top: 5px;
+    }
+
+    .nav > li {
+      float: none;
+    }
+
+    .nav > li > a {
+      display: block !important;
+      margin-bottom: 2px;
+    }
+
+    .nav > li.active a {
+      background: none;
+      background-color: $blue;
+
+      &:before,
+      &:hover:before { border: none; }
+    }
+
+    .nav > .divider-vertical {
+      display: none;
+    }
+
+    .nav .nav-header {
+      color: $navbarText;
+      text-shadow: none;
+    }
+
+    // Nav and dropdown links in navbar
+    .nav > li > a,
+    .dropdown-menu a {
+      color: $navbarLinkColor;
+      font-weight: $semibold;
+      line-height: $baseLineHeight;
+      padding: 2px 10px;
+    }
+
+    // Buttons
+    tn {
+      font-weight: normal;
+      padding: 4px 10px 4px;
+      @include border-radius();
+    }
+
+    .dropdown-menu li + li a {
+      margin-bottom: 2px;
+    }
+
+    .nav > li > a:hover,
+    .dropdown-menu a:hover {
+      background-color: transparent;
+    }
+
+    // Buttons in the navbar
+    in .btn-group {
+      margin-top: 5px;
+      padding: 0;
+    }
+
+    // Dropdowns in the navbar
+    .dropdown-menu {
+      background-color: transparent;
+      border: none;
+      display: block;
+      float: none;
+      left: auto;
+      margin: 0 15px;
+      max-width: none;
+      padding: 0;
+      position: static;
+      top: auto;
+      @include border-radius(0);
+      @include box-shadow(none);
+    }
+    .dropdown-menu:before,
+    .dropdown-menu:after {
+      display: none;
+    }
+
+    .dropdown-menu .divider {
+      display: none;
+    }
+
+    // Forms in navbar
+    .navbar-form,
+    .navbar-search {
+      border-bottom: 1px solid $navbarBackground;
+      border-top: 1px solid $navbarBackground;
+      float: none;
+      margin: ($baseLineHeight / 2) 0;
+      padding: ($baseLineHeight / 2) 15px;
+      $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
+      @include box-shadow($shadow);
+    }
+  }
+
+  // Pull right (secondary) nav content
+  .navbar .nav-collapse .nav.pull-right {
+    float: none;
+    margin-left: 0;
+  }
+
+  // Hide everything in the navbar save .brand and toggle button */
+  .nav-collapse,
+  .nav-collapse.collapse {
+    height: 0;
+    overflow: hidden;
+  }
+
+  // Navbar button
+  .navbar .btn-navbar {
+    display: block;
+  }
+
+  // Negative indent the now static "fixed" navbar
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  /* Static Navbar
+  ================================================== */
+
+  .navbar-static .navbar-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* ==============================================================================
+   Larger than mobile landscape
+   481px ↑
+   =========================================================================== */
+
+// Required to make the collapsing navbar work on regular desktops
+@media (min-width: 481px) {
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

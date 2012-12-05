@@ -1,0 +1,40 @@
+
+/* ==============================================================================
+   Tooltip
+   =========================================================================== */
+
+.tooltip {
+  display: block;
+  font-size: 11px;
+  padding: 5px;
+  position: absolute;
+  visibility: visible;
+  z-index: $zindexTooltip;
+  @include opacity(0);
+
+  &.in     { @include opacity(90); }
+  &.top    { margin-top:  -2px; }
+  &.right  { margin-left:  2px; }
+  &.bottom { margin-top:   2px; }
+  &.left   { margin-left: -2px; }
+  &.top .tooltip-arrow    { @include popoverArrow-top(); }
+  &.left .tooltip-arrow   { @include popoverArrow-left(); }
+  &.bottom .tooltip-arrow { @include popoverArrow-bottom(); }
+  &.right .tooltip-arrow  { @include popoverArrow-right(); }
+}
+
+.tooltip-inner {
+  background-color: $black;
+  color: $white;
+  max-width: 200px;
+  padding: 3px 8px;
+  text-align: center;
+  text-decoration: none;
+  @include border-radius();
+}
+
+.tooltip-arrow {
+  height: 0;
+  position: absolute;
+  width: 0;
+}

@@ -1,0 +1,243 @@
+
+/* ==============================================================================
+   Button Styles
+   =========================================================================== */
+
+/* Base Styles
+================================================== */
+
+// Core
+.btn {
+  border-bottom-color: darken($btnBorder, 12%);
+  border: 1px solid $btnBorder;
+  color: $grayDark;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  margin-bottom: 0; // For input.btn
+  padding: 4px 10px 4px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  vertical-align: middle;
+  @include border-radius(2px);
+  $shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 2px rgba(0,0,0,.05);
+  @include box-shadow($shadow);
+  @include buttonBackground($btnBackground, $btnBackgroundHighlight);
+  @include ie7-inline-block();
+
+  // Give IE7 some love
+  @include ie7-restore-left-whitespace();
+
+  &:hover {
+    color: $grayDark;
+    text-decoration: none;
+    background-color: darken($grayLightest, 15%);
+    background-position: 0 -15px;
+
+    // transition is only when going to hover, otherwise the background
+    // behind the gradient (there for IE<=9 fallback) gets mismatched
+    @include transition(background-position .1s linear);
+  }
+}
+
+// Focus state for keyboard and accessibility
+.btn:focus {
+  @include tab-focus();
+}
+
+// Active state
+.btn.active,
+.btn:active {
+  background-color: darken($grayLightest, 10%);
+  background-color: darken($grayLightest, 15%) e("\9");
+  background-image: none;
+  outline: 0;
+  $shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  @include box-shadow($shadow);
+}
+
+// Disabled state
+.btn.disabled,
+.btn[disabled] {
+  background-color: darken($grayLightest, 10%);
+  background-image: none;
+  cursor: default;
+  @include opacity(50);
+  @include box-shadow(none);
+}
+
+/* Button Sizes
+================================================== */
+
+// Large
+.btn-large {
+  font-size: $baseFontSize + 2px;
+  line-height: normal;
+  padding: 7px 14px 11px;
+}
+
+// Small
+.btn-small {
+  font-size: $baseFontSize - 2px;
+  line-height: $baseLineHeight - 2px;
+  padding: 4px 9px 6px;
+
+  [class^="icon-"] { margin-top: -1px; }
+}
+
+// Mini
+.btn-mini {
+  font-size: $baseFontSize - 2px;
+  line-height: $baseLineHeight - 4px;
+  padding: 1px 6px 3px;
+}
+
+// Correct padding on link buttons
+a {
+  &.btn-large { padding: 10px 14px 8px; }
+  &.btn-small { padding: 6px 9px 4px; }
+  &.btn-mini { padding: 3px 6px 1px; }
+}
+
+/* Alernate Buttons
+================================================== */
+
+// Button Icons
+.btn {
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    margin-left: -5px;
+  }
+}
+
+.btn-small {
+  [class^="icon-"],
+  [class*=" icon-"] {
+    @include icon-size(14px);
+  }
+}
+
+.btn-mini {
+  [class^="icon-"],
+  [class*=" icon-"] {
+    @include icon-size(12px);
+    margin-top: 1px;
+  }
+}
+
+// Set text color
+.btn-primary,
+.btn-primary:hover,
+.btn-warning,
+.btn-warning:hover,
+.btn-danger,
+.btn-danger:hover,
+.btn-success,
+.btn-success:hover,
+.btn-info,
+.btn-info:hover,
+.btn-inverse,
+.btn-inverse:hover {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  color: $white;
+}
+
+// Provide *some* extra contrast for those who can get it
+.btn-primary.active,
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active,
+.btn-inverse.active {
+  color: rgba(255,255,255,.75);
+}
+
+// Set the backgrounds
+.btn-primary {
+  @include buttonBackground($btnPrimaryBackground, $btnPrimaryBackgroundHighlight);
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    color: darken($btnPrimaryBackgroundHighlight, 12%);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  }
+}
+
+// Warning appears are orange
+.btn-warning {
+  @include buttonBackground($btnWarningBackground, $btnWarningBackgroundHighlight);
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    color: darken($btnWarningBackgroundHighlight, 20%);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.35);
+  }
+}
+
+// Danger and error appear as red
+.btn-danger {
+  @include buttonBackground($btnDangerBackground, $btnDangerBackgroundHighlight);
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    color: darken($btnDangerBackgroundHighlight, 13%);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.35);
+  }
+}
+
+// Success appears as green
+.btn-success {
+  @include buttonBackground($btnSuccessBackground, $btnSuccessBackgroundHighlight);
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    color: darken($btnSuccessBackgroundHighlight, 7%);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.35);
+  }
+}
+
+// Info appears as a neutral blue
+.btn-info {
+  @include buttonBackground($btnInfoBackground, $btnInfoBackgroundHighlight);
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    color: darken($btnInfoBackgroundHighlight, 15%);
+    text-shadow: 0 -1px 0 rgba(0,0,0,.35);
+  }
+}
+
+// Inverse appears as dark gray
+.btn-inverse {
+  @include buttonBackground($btnInverseBackground, $btnInverseBackgroundHighlight);
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    color: darken($btnInverseBackgroundHighlight, 20%);
+    text-shadow: 0 1px 0 rgba(255,255,255,.25);
+  }
+}
+
+/* Cross Browser Jank
+================================================== */
+
+button.btn,
+input[type="submit"].btn {
+
+  // Firefox 3.6 only I believe
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  // IE7 has some default padding on button controls
+  *padding-top: 2px;
+  *padding-bottom: 2px;
+  &.btn-large {
+    *padding-bottom: 7px;
+    *padding-top: 7px;
+  }
+  &.btn-small {
+    *padding-bottom: 3px;
+    *padding-top: 3px;
+  }
+  &.btn-mini {
+    *padding-bottom: 1px;
+    *padding-top: 1px;
+  }
+}
