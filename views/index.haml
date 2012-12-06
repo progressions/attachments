@@ -64,9 +64,13 @@
                   %i.icon-download
                   %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
 
+      %p
+        %a.more{:href => "#"} More
+
     %script{:src => "/assets/application.js", :type => "text/javascript"}
 
     :javascript
       $(document).ready(function() {
-        messages = new Messages(".attachments");
+        $(".more").click(Messages.more);
+        Messages.get({"container": ".attachments"});
       });

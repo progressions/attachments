@@ -9,8 +9,9 @@ end
 
 get "/attachments" do
   limit = params[:limit] || 10000
+  offset = params[:offset] || 0
   @context = Context.new
-  @messages = @context.list_messages(:include_body => true, :limit => limit)
+  @messages = @context.list_messages(:include_body => true, :limit => limit, :offset => offset)
   @messages_total = @messages.length
 
   @attachments = @messages.map do |message|
