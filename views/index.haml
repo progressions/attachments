@@ -28,12 +28,15 @@
 
 
     #content.container
-      %p
+      %p.count{:style => "display: none;"}
         You have 
-        %span.files_count 10
+        %span.files_count 0
         files in 
-        = @messages.length
+        %span.messages_count 0
         messages.
+
+      %p
+        %a.more{:href => "#"} More
 
       %table.table.attachments
         %thead
@@ -43,6 +46,10 @@
             %th Size
             %th Date
             %th 
+          %tr.loading
+            %td{:colspan => 5}
+              .spinner.spinner-small
+              Loading ...
         - @messages.each do |message|
           - if message["files"]
             - message["files"].each do |file|
@@ -60,4 +67,13 @@
                   %i.icon-download
                   %a{:href => "/download?file_id=#{file['file_id']}&content_type=#{file['type']}"} Download
 
+      %p
+        %a.more{:href => "#"} More
+
     %script{:src => "/assets/application.js", :type => "text/javascript"}
+
+    :javascript
+      $(document).ready(function() {
+        $(".more").click(Messages.more);
+        Messages.get({"container": ".attachments"});
+      });
